@@ -1,14 +1,23 @@
 {
-  "name": "suil",
-  "version": "1.0.0",
-  "description": "Simple UI library",
-  "main": "suil.js",
-  "type": "module",
-  "scripts": {
-      "build": "tsc",
-      "watch": "tsc --watch"
-  },
-  "keywords": ["reactive library", "frontend library"],
-  "author": "Sakith B.",
-  "license": "MIT"
+    "name": "suil",
+    "version": "1.0.0",
+    "description": "Simple UI library",
+    "main": "dist/suil.js",
+    "types": "types/suil.d.ts",
+    "module": "dist/suil.js",
+    "browser": "dist/suil.js",
+    "files": ["dist", "types"],
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch"
+    },
+    "keywords": [
+        "reactive library",
+        "frontend library"
+    ],
+    "author": "Sakith B.",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^5.7.3"
+    }
 }

@@ -92,7 +92,7 @@ function proxify<T extends StateSpec>(target: T): State<T> {
     }) as unknown as State<T>;
 }
 
-function component<P, S = StateSpec>(spec: ComponentSpec<S, P>): Component<P> {
+function component<P extends Record<string, any>, S extends StateSpec = StateSpec>(spec: ComponentSpec<S, P>): Component<P> {
     return (props) => {
         const state = proxify(spec.state ?? ({} as S));
 
@@ -157,10 +157,11 @@ function addExprDeps(deps: StateValueDef<any>[], elem: HTMLElement, prop: keyof 
 
 function element(spec: ElementSpec): HTMLElement  {
     const elem = document.createElement(spec.name);
+    if (spec.props == null) return elem;
 
-    for (const prop of Object.keys(spec.props ?? {}) as ElementSpecKey[]) {
+    for (const prop of Object.keys(spec.props) as ElementSpecKey[]) {
         const p = prop.split("__", 2);
-        const v = spec.props[prop];
+        const v = spec.props[prop]!;
 
         if (p.length > 1 && p[0] === "on") {
             elem.addEventListener(p[1], v as unknown as ((...args: any[]) => any));
