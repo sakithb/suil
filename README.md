@@ -1,7 +1,7 @@
-# Simple UI Library
+# Web UI Library
 
 ```ts
-import { render, component, expr, state } from "suil"
+import { render, component, expr, state } from "wuil"
 
 const counter = component({
     state: {

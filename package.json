@@ -1,18 +1,18 @@
 {
-    "name": "suil",
+    "name": "wuil",
     "version": "1.0.0",
-    "description": "Simple UI library",
-    "main": "dist/suil.js",
-    "types": "types/suil.d.ts",
-    "module": "dist/suil.js",
-    "browser": "dist/suil.js",
+    "description": "Web UI library",
+    "main": "dist/wuil.js",
+    "types": "types/wuil.d.ts",
+    "module": "dist/wuil.js",
+    "browser": "dist/wuil.js",
     "files": ["dist", "types"],
     "scripts": {
         "build": "tsc",
         "watch": "tsc --watch"
     },
     "keywords": [
-        "reactive library",
+        "ui library",
         "frontend library"
     ],
     "author": "Sakith B.",

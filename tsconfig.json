@@ -9,5 +9,5 @@
         "strict": true,
         "lib": ["ES6", "DOM"]
     },
-    "include": ["suil.ts"]
+    "include": ["wuil.ts"]
 }
