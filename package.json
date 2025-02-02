@@ -9,7 +9,8 @@
     "files": ["dist", "types"],
     "scripts": {
         "build": "tsc",
-        "watch": "tsc --watch"
+        "watch": "tsc --watch",
+        "test": "echo \"No tests for now\""
     },
     "keywords": [
         "ui library",
