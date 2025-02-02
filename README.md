@@ -1,7 +1,7 @@
 # Simple UI Library
 
 ```ts
-import { render, component, expr, state } from "../dist/suil.js"
+import { render, component, expr, state } from "suil"
 
 const counter = component({
     state: {
@@ -32,92 +32,64 @@ const counter = component({
 render("#app", counter());
 ```
 
-### Reactive state
-
-> Accessing state: `state(count)`
-> Setting state: `state(count, 10)`
-
-```ts
-const c = component({
-    state: {
-        count: 0,
-    },
-    render: ({ count, color }) => ({
-        name: "div",
-        children: [
-            {
-                name: "span",
-                props: {
-                    textContent: state(count),
-                }
-            },
-            {
-                name: "button",
-                props: {
-                    textContent: "Increment",
-                    on__click: () => {
-                        state(count, state(count) + 1);
-                    }
-                }
-            },
-        ]
-    })
-});
-```
-
-### Reactive expressions
-
-> Creating expressions: `expr(() => count * 2, [count])`
+## State
+Accessing state: `state(count)`\
+Setting state: `state(count, 10)`
 
 ```ts
-const c = component({
-    state: {
-        count: 0,
-    },
-    render: ({ count, color }) => ({
-        name: "div",
-        children: [
-            {
-                name: "span",
-                props: {
-                    textContent: expr(() => state(count) * 2, [count]),
-                }
-            },
-            {
-                name: "button",
-                props: {
-                    textContent: "Increment",
-                    on__click: () => {
-                        state(count, state(count) + 1);
-                    }
-                }
-            },
-        ]
-    })
-});
+{
+    name: "span",
+    props: {
+        textContent: state(count),
+    }
+}
+```
+```ts
+{
+    name: "button",
+    props: {
+        textContent: "Increment",
+        on__click: () => {
+            state(count, state(count) + 1);
+        }
+    }
+}
 ```
 
-### Property types
+## Expressions
+Creating expressions: `expr(() => count * 2, [count])`
 
-*Event handlers* - `on__*: Function`
-> Access/set state inside event handlers
-Examples: on__click, on__change
+```ts
+{
+    name: "span",
+    props: {
+        textContent: expr(() => state(count) * 2, [count]),
+    }
+}
+```
 
-*Styles* - `style__*: string`
-> Change styles dynamically
-Examples: style__color, style__fontSize
+## Property types
 
-*Classes* - `class__*: boolean`
-> Toggle classes dynamically
-Examples: class__hidden, class__error
+**Event handlers** - `on__*: Function`\
+Access/set state inside event handlers\
+*Examples: on__click, on__change*
 
-*Data attributes* - `data__*: string | number | boolean`
-> Set data attributes dynamically
-Examples: data__id, data__name
+**Styles** - `style__*: string`\
+Change styles dynamically\
+*Examples: style__color, style__fontSize*
 
-*Attributes* - `*: string | number | boolean`
-> Set attributes dynamically
-Examples: id, class, for
+**Classes** - `class__*: boolean`\
+Toggle classes dynamically\
+*Examples: class__hidden, class__error*
 
-*Special cases* - `textContent: string`
-> Set textContent dynamically
+**Data attributes** - `data__*: string | number | boolean`\
+Set data attributes dynamically\
+*Examples: data__id, data__name*
+
+**Attributes** - `*: string | number | boolean`\
+Set attributes dynamically\
+*Examples: id, class, for*
+
+**Special cases** - `textContent: string`\
+Set textContent dynamically
+*Examples: "Click me"*
